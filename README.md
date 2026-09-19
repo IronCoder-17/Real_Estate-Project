@@ -77,33 +77,8 @@ A full-stack Indian luxury real-estate platform: a customer-facing property port
 
 ## Architecture
 
-```
-                 ┌───────────────────────────────┐
-                 │   React SPA (CRA, :3000)      │
-                 │   Public site · Admin · Portal │
-                 └───────────────┬────────────────┘
-                                 │ axios (proxy → :5000)
-                 ┌───────────────┴────────────────┐
-                 │   Node.js / Express API (:5000) │
-                 │   auth, properties, leads,      │
-                 │   inquiries, crm, portal, ...    │
-                 └───────────────┬────────────────┘
-                                 │ SQL (mysql2)
-                 ┌───────────────┴────────────────┐
-                 │   MySQL — iconic_estates_india  │
-                 └───────────────┬────────────────┘
-                                 │
-                 ┌───────────────┴────────────────┐
-                 │  Python FastAPI (:8000)         │
-                 │  ROI · Recommendations ·        │
-                 │  Market · Ownership Journey      │
-                 └──────────────────────────────────┘
-```
+<img width="7110" height="4500" alt="diagram" src="https://github.com/user-attachments/assets/716a46c9-0b1e-452f-a2af-5a316bf4d54e" />
 
-The frontend talks primarily to the Node API (proxied at `/api` in development,
-via `frontend/package.json`'s `proxy` field). The Node API and the FastAPI
-service run independently on ports `5000` and `8000` and both read from the
-same MySQL database.
 
 ---
 
