@@ -10,7 +10,7 @@ export default function CompareBar() {
   const [titles, setTitles] = useState({});
   const navigate = useNavigate();
 
-  useEffect(() => onCompareChange(setIds), []);
+  useEffect(() => onCompareChange((e) => setIds(e.detail)), []);
 
   useEffect(() => {
     document.body.classList.toggle('has-compare-bar', ids.length > 0);

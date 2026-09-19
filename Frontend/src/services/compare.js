@@ -9,12 +9,12 @@ export const MAX_COMPARE = 4;
 function read() {
   try {
     const raw = localStorage.getItem(KEY);
-    return raw ? JSON.parse(raw) : [];
+    const parsed = raw ? JSON.parse(raw) : [];
+    return Array.isArray(parsed) ? parsed : [];
   } catch {
     return [];
   }
 }
-
 function write(ids) {
   localStorage.setItem(KEY, JSON.stringify(ids));
   window.dispatchEvent(new CustomEvent(EVENT, { detail: ids }));

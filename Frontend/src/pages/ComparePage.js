@@ -26,7 +26,7 @@ export default function ComparePage() {
   const [properties, setProperties] = useState([]);
   const [loading, setLoading] = useState(true);
 
-  useEffect(() => onCompareChange(setIds), []);
+  useEffect(() => onCompareChange((e) => setIds(e.detail)), []);
 
   useEffect(() => {
     if (ids.length === 0) { setProperties([]); setLoading(false); return; }
